@@ -153,7 +153,7 @@ app.post("/districts/", authenticateToken, async (request, response) => {
       (${stateId}, '${districtName}', ${cases}, ${cured}, ${active}, ${deaths});`;
 
   await database.run(postDistrictQuery);
-  response.send("District Successfully Updated");
+  response.send("District Successfully Added");
 });
 
 app.delete(
@@ -187,7 +187,7 @@ app.put(
     } = request.body;
     const updateDistrictQuery = `
     UPDATE
-      district,
+      district
     SET
       district_name = '${districtName}',
       state_id = ${stateId},
